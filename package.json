@@ -1,0 +1,21 @@
+{
+  "name": "cheesio",
+  "version": "0.2.0",
+  "description": "A Discord bot named Cheesio that is multipurpose.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "Discord",
+    "bot",
+    "cheesio"
+  ],
+  "author": "Chen",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
