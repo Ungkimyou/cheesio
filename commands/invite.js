@@ -19,7 +19,7 @@ module.exports = {
 			.setThumbnail('https://media.discordapp.net/attachments/802136652650512384/807310573220921344/PetCheesio.gif')
 			.addFields(
 				{ name: 'Support Server', value: 'https://discord.gg/DYRXdYSa2d', inline: false },
-				{ name: 'Bot Invite', value: 'https://discord.com/api/oauth2/authorize?client_id=733347551973212331&permissions=2147483647&scope=bot', inline: false },
+				{ name: 'Bot Invite', value: 'https://discord.com/api/oauth2/authorize?client_id=796799582042193971&permissions=2147483647&scope=bot', inline: false },
 			)
 			.setTimestamp()
 			.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ format: 'png', dynamic: true }));
