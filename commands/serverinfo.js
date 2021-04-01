@@ -5,9 +5,21 @@ module.exports = {
 	args: false,
 	usage: '',
 	guildOnly: true,
+	category: 'General',
 	execute(message) {
-		message.channel.send(`**__Information about this server__**\n**Name:** ${message.guild.name}\n**ID:** ${message.guild.id}\n**Membercount:** ${message.guild.memberCount}`);
+		const data = [];
 
-		console.log(`Successfully performed serverinfo command to ${message.author.tag}.`);
+		data.push('**__Information about this server__**');
+		data.push(`**Name:** ${message.guild.name}`);
+		data.push(`**ID:** ${message.guild.id}`);
+		data.push(`**Region:** ${message.guild.region}`);
+		data.push(`**Verification Level:** ${message.guild.verificationLevel}`);
+		data.push(`**Membercount:** ${message.guild.memberCount}`);
+		data.push(`**Owner:** ${message.guild.owner.user.tag}`);
+		data.push(`**Server Creation Date:** ${message.guild.createdAt}`);
+		data.push(`**Number of boosts:** ${message.guild.premiumSubscriptionCount}`);
+		data.push(`**Boost Level:** ${message.guild.premiumTier}`);
+		data.push(`**Server Logo:** ${message.guild.iconURL({ format: 'png', dynamic: true, size: 128 })}`);
+		return message.channel.send(data, { split: true });
 	},
 };
