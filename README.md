@@ -3,31 +3,7 @@ This is the Repository for the Cheesio Discord Bot.
 
 ## What does Cheesio do?
 
-Cheesio is currently under development (v0.3.0) with very limited commands.
-
-### Commands
-
-There are 4 commands: Avatar, ping, userinfo and serverinfo.
-
-#### Avatar
-Fetches your or the user you provided's avatar.  
-Aliases: Av, pfp, profilepic  
-Cooldown: 5 seconds
-
-#### Ping
-Fetches the Message Roundtrip and API Latency, and provides the uptime for the bot since it last booted up.  
-Aliases: Pong, pingpong, latency, uptime  
-Cooldown: 5 seconds
-
-#### Serverinfo
-Fetches information about the server.  
-Aliases: Si, serveri, sinfo  
-Cooldown: 5 seconds
-
-#### Userinfo
-Fetches information about you or the user provided.  
-Aliases: Ui, whois, wi  
-Cooldown: 5 seconds
+Cheesio is currently under development (v0.4.0) with very limited commands.
 
 ## How do I invite Cheesio to my server?
 
