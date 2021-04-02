@@ -6,14 +6,29 @@ module.exports = {
 	usage: '[@user]',
 	guildOnly: false,
 	category: 'General',
-	execute(message, args) {
-		const data = [];
+	execute(message) {
 
-		if (!args) {
-			data.push('**__Information about you__**');
-			message.channel.send(`**__Information about you__**\n**Username:** ${message.author.tag}\n**ID:** ${message.author.id}\n`);
-
-			return console.log(`Successfully performed userinfo command to ${message.author.tag}.`);
+		if (!message.mentions.members.size) {
+			const reply = `**__Information about ${message.author.tag}__**
+**Name:** ${message.author} (${message.author.tag})
+**ID:** ${message.author.id}
+**Username:** ${message.author.username}
+**Discriminator:** ${message.author.discriminator}
+**Account Creation Date:** ${message.author.createdAt}
+**Join Date:** ${message.author.joinedAt}
+**Nickname:** ${message.guild.member(message.author).nickname || 'None'}
+**Permissions:** ${message.guild.member(message.author).permissions.toArray().map(p => p.toLowerCase().replace('_', ' ').replace('_', ' ')).join(', ') || 'None'}
+**Server Boost Usage Date:** ${message.guild.member(message.author).premiumSince || 'The user has not used a Server Boost'}
+**Display Color:** ${message.guild.member(message.author).displayHexColor}
+**Roles:** ${message.guild.member(message.author).roles.cache.map(r => r.name).join(', ').replace(', @everyone', '')}
+**Highest Role:** ${message.guild.member(message.author).roles.highest.name}
+**Status:** ${message.guild.member(message.author).presence.status.replace(/^\w/, (c) => c.toUpperCase())}
+**Platform:** ${Object.keys(message.author.presence.clientStatus).join(', ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))) || 'Unable to fetch data about platform'}
+**Game:** ${message.guild.member(message.author).presence.activities.name || 'None'}
+**Details:** ${message.guild.member(message.author).presence.activities.details || 'None'}
+**Custom Status Emoji:** ${message.guild.member(message.author).presence.activities.emoji || 'None'}
+**User Features:** ${message.guild.member(message.author).user.flags.toArray().map(p => p.toLowerCase().replace('_', ' ').replace('_', ' ')).join(', ') || 'None'}`;
+			return message.channel.send(reply);
 		}
 		else if (message.mentions.members.size) {
 			const listOfPingedUsers = message.mentions.members.map((user) => {
@@ -38,9 +53,6 @@ module.exports = {
 **User Features:** ${user.user.flags.toArray().map(p => p.toLowerCase().replace('_', ' ').replace('_', ' ')).join(', ') || 'None'}`;
 			});
 			return message.channel.send(listOfPingedUsers, { split: true });
-		}
-		else if (!message.mentions.members.size) {
-			message.channel.send('That user does not exist or is not in the server!');
 		}
 	},
 };
