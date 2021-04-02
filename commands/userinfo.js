@@ -15,7 +15,7 @@ module.exports = {
 **Username:** ${message.author.username}
 **Discriminator:** ${message.author.discriminator}
 **Account Creation Date:** ${message.author.createdAt}
-**Join Date:** ${message.author.joinedAt}
+**Join Date:** ${message.guild.member(message.author).joinedAt}
 **Nickname:** ${message.guild.member(message.author).nickname || 'None'}
 **Permissions:** ${message.guild.member(message.author).permissions.toArray().map(p => p.toLowerCase().replace('_', ' ').replace('_', ' ')).join(', ') || 'None'}
 **Server Boost Usage Date:** ${message.guild.member(message.author).premiumSince || 'The user has not used a Server Boost'}
